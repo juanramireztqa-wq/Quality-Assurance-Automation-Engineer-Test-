@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.mycompany'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    cucumberVersion = '7.34.3'
+    seleniumVersion = '4.44.0'
+    webDriverManagerVersion = '6.3.4'
+    junit4Version = '4.13.2'
+
+    dependencies {
+        implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+        implementation "io.github.bonigarcia:webdrivermanager:${webDriverManagerVersion}"
+        testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+        testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+        testImplementation "junit:junit:${junit4Version}"
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+test {
+    useJUnit()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
