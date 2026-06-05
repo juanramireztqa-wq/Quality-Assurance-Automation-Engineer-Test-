@@ -1,6 +1,8 @@
 # Quality Assurance Automation Engineer Test
 This project is the solution to the **Quality Assurance Automation Engineer Assessment** for **ScotiaTech**.  
 
+It specifically corresponds to the **automation of Test Case TC‑8 (Complete checkout flow for purchasing a single product)** from the manual testing section of the assessment.
+
 It automates the complete checkout flow on [saucedemo.com](https://www.saucedemo.com) using **Selenium WebDriver**, **Cucumber BDD**, and **Allure Reports**.  
 
 It validates product selection, cart management, checkout, and generates professional reports with visual evidence (screenshots).
