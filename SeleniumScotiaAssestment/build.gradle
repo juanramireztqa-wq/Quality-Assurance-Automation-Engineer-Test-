@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
 }
 
 group = 'com.mycompany'
@@ -15,24 +14,34 @@ ext {
     seleniumVersion = '4.44.0'
     webDriverManagerVersion = '6.3.4'
     junit4Version = '4.13.2'
+}
 
-    dependencies {
-        implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
-        implementation "io.github.bonigarcia:webdrivermanager:${webDriverManagerVersion}"
-        testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
-        testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
-        testImplementation "junit:junit:${junit4Version}"
-    }
+dependencies {
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "io.github.bonigarcia:webdrivermanager:${webDriverManagerVersion}"
+    testImplementation "io.qameta.allure:allure-junit4:2.24.0"
+    testImplementation "io.qameta.allure:allure-cucumber7-jvm:2.24.0"
+
+
+    // Cucumber + JUnit
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+
+    // JUnit 4
+    testImplementation "junit:junit:${junit4Version}"
 }
 
 java {
+    withJavadocJar()
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
+
 test {
     useJUnit()
+    systemProperty "headless", "false"
     testLogging {
         events "passed", "skipped", "failed"
     }
