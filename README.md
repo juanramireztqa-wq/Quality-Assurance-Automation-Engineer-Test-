@@ -30,7 +30,7 @@ This approach separates test logic from page structure, making the automation fr
 
 Clone the repository and navigate into the project folder:
 ```bash
-git clone https://github.com/your-username/SeleniumScotiaAssessment.git
+git clone https://github.com/juanramireztqa-wq/Quality-Assurance-Automation-Engineer-Test-
  ````
 ```bash
 cd SeleniumScotiaAssessment
